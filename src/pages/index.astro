@@ -1,16 +1,718 @@
 ---
+import Layout from '../layouts/Layout.astro';
 
+const services = [
+  {
+    title: 'Exterior Detailing',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    image: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=400&h=300&fit=crop',
+  },
+  {
+    title: 'Interior Detailing',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    image: 'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?w=400&h=300&fit=crop',
+  },
+  {
+    title: 'Engine Detailing',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=300&fit=crop',
+  },
+  {
+    title: 'Protecting Coat',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop',
+  },
+  {
+    title: 'Paint Correcting',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    image: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&h=300&fit=crop',
+  },
+  {
+    title: 'Pressure Wash',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop',
+  },
+];
+
+const schedule = [
+  { day: 'Monday', morning: '07:00 - 20:00', afternoon: '12:00 - 20:00' },
+  { day: 'Tuesday', morning: '07:00 - 20:00', afternoon: '12:00 - 20:00' },
+  { day: 'Wednesday', morning: '07:00 - 20:00', afternoon: '12:00 - 20:00' },
+  { day: 'Thursday', morning: '07:00 - 20:00', afternoon: '12:00 - 20:00' },
+  { day: 'Friday', morning: '10:00 - 18:00', afternoon: '10:00 - 18:00' },
+  { day: 'Saturday', morning: '10:00 - 18:00', afternoon: '10:00 - 18:00' },
+  { day: 'Sunday', morning: 'Closed', afternoon: 'Closed' },
+];
+
+const pricingPlans = [
+  {
+    name: 'Basic Offer',
+    price: 240,
+    description: 'Lorem ipsum dolor sit amet, consec tetur adipiscing.',
+    features: ['Exterior Wash', 'Interior Wash', 'Engine Wash', 'Special Coating'],
+    featured: false,
+  },
+  {
+    name: 'Regular Offer',
+    price: 320,
+    description: 'Lorem ipsum dolor sit amet, consec tetur adipiscing.',
+    features: ['Exterior Wash', 'Interior Wash', 'Engine Wash', 'Special Coating'],
+    featured: true,
+  },
+  {
+    name: 'Special Offer',
+    price: 450,
+    description: 'Lorem ipsum dolor sit amet, consec tetur adipiscing.',
+    features: ['Exterior Wash', 'Interior Wash', 'Engine Wash', 'Special Coating'],
+    featured: false,
+  },
+];
+
+const locations = [
+  { city: 'NEW YORK', address: '06 955 Nawn Trail, 99811', weekday: 'Monday - Friday', weekdayHours: '10:00 AM - 06:00 PM', weekend: 'Saturday - Sunday', weekendHours: '09:00 AM - 04:00 PM' },
+  { city: 'ANKENY', address: '0920 Cole Shore, 917-520', weekday: 'Monday - Friday', weekdayHours: '10:00 AM - 06:00 PM', weekend: 'Saturday - Sunday', weekendHours: '09:00 AM - 04:00 PM' },
+  { city: 'FELICIA', address: '392 Kunde Well, 708-706', weekday: 'Monday - Friday', weekdayHours: '10:00 AM - 06:00 PM', weekend: 'Saturday - Sunday', weekendHours: '09:00 AM - 04:00 PM' },
+  { city: 'WEST VILLA', address: '232 Simeon Isle, 349-0584', weekday: 'Monday - Friday', weekdayHours: '10:00 AM - 06:00 PM', weekend: 'Saturday - Sunday', weekendHours: '09:00 AM - 04:00 PM' },
+];
+
+const blogPosts = [
+  {
+    title: 'The Alfa Romeo Giulia SW Zagato',
+    excerpt: 'Proin leo felis, pulvinar et erat non, posuere commodo tellus...',
+    date: 'December 26, 2022',
+    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop',
+    slug: 'alfa-romeo-giulia-sw-zagato',
+    categories: ['Business', 'Car'],
+  },
+  {
+    title: 'Toyota Selling Catalyti Converter',
+    excerpt: 'Proin leo felis, pulvinar et erat non, posuere commodo tellus...',
+    date: 'December 26, 2022',
+    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop',
+    slug: 'toyota-selling-catalyti-converter',
+    categories: ['Car', 'Electric'],
+  },
+  {
+    title: 'Hyundai Remakes a Lost 1970s Car',
+    excerpt: 'Proin leo felis, pulvinar et erat non, posuere commodo tellus...',
+    date: 'December 26, 2022',
+    image: 'https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?w=400&h=300&fit=crop',
+    slug: 'hyundai-remakes-lost-1970s-car',
+    categories: ['Business', 'Car'],
+  },
+];
+
+const faqs = [
+  {
+    question: 'How many fruit flavors do you have?',
+    answer: 'Etiam suscipit, odio nec sagittis imperdiet, quam ante ullamcorper nisl, sed tincidunt ligula nibh ac libero. Praesent et tempor tortor, non aliquet leo.',
+  },
+  {
+    question: 'Can I buy you product in large quantities?',
+    answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  },
+  {
+    question: 'How many branches do you have now?',
+    answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  },
+  {
+    question: 'How do I open a franchise for Connie?',
+    answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  },
+];
+
+const teamMembers = [
+  { name: 'Sarah Johnson', role: 'Manager', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=400&fit=crop' },
+  { name: 'Mike Wilson', role: 'Technician', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop' },
+  { name: 'Emily Davis', role: 'Specialist', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=400&fit=crop' },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home">
+  <!-- Hero Section -->
+  <section class="relative bg-gray-50 overflow-hidden">
+    <div class="container mx-auto px-4 py-16 lg:py-24">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Welcome to AQUWASH</p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight mb-6">
+            The Trusted Wash for Your Family Vehicle
+          </h1>
+          <p class="text-gray-600 text-lg mb-8 max-w-lg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+          </p>
+          <div class="flex flex-wrap gap-4 mb-8">
+            <a href="/contact" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-secondary transition-colors">
+              Get Started
+            </a>
+            <a href="/#services" class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-full font-medium hover:border-primary hover:text-primary transition-colors">
+              Read More
+            </a>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex -space-x-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&h=48&fit=crop" alt="Customer" class="w-12 h-12 rounded-full border-2 border-white object-cover" />
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=48&h=48&fit=crop" alt="Customer" class="w-12 h-12 rounded-full border-2 border-white object-cover" />
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=48&h=48&fit=crop" alt="Customer" class="w-12 h-12 rounded-full border-2 border-white object-cover" />
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=48&h=48&fit=crop" alt="Customer" class="w-12 h-12 rounded-full border-2 border-white object-cover" />
+            </div>
+            <div class="text-sm">
+              <span class="font-semibold text-gray-900">200+</span>
+              <span class="text-gray-600">Satisfied Members</span>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="relative z-10">
+            <img
+              src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&h=500&fit=crop"
+              alt="Car Wash"
+              class="rounded-2xl shadow-2xl"
+            />
+          </div>
+          <!-- Stats Card -->
+          <div class="absolute top-4 right-4 bg-white rounded-xl shadow-lg p-4 z-20">
+            <div class="text-center">
+              <span class="text-3xl font-bold text-purple">3,200+</span>
+              <p class="text-sm text-gray-600">Total Car Washed</p>
+            </div>
+          </div>
+          <!-- Rating Card -->
+          <div class="absolute bottom-4 left-4 bg-white rounded-xl shadow-lg p-4 z-20">
+            <div class="flex items-center gap-2">
+              <span class="text-3xl font-bold text-gray-900">4.9</span>
+              <div>
+                <div class="flex text-accent">
+                  {[...Array(5)].map(() => (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
+                </div>
+                <p class="text-xs text-gray-600">Quality Service</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?w=500&h=400&fit=crop"
+            alt="Car Washing"
+            class="rounded-2xl shadow-xl"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=250&fit=crop"
+            alt="Car Detailing"
+            class="absolute -bottom-8 -right-8 rounded-2xl shadow-xl border-4 border-white hidden md:block"
+          />
+        </div>
+        <div>
+          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">About Us</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+            The Trusted Wash for Your Family Vehicle
+          </h2>
+          <p class="text-gray-600 mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-gray-700">Proin omni at ullamcorper</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-gray-700">Donec faucibus cond turpis</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-gray-700">Nam varius velit sed felis</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-gray-700">Nulla at accumsan sapien</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-gray-700">Curabitur quis varius justo</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-gray-700">Nullam tincidunt lorem ante</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-6">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-purple/10 rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500">24/7 Full Support</p>
+                <p class="font-semibold text-gray-900">+1 (234) 567 890</p>
+              </div>
+            </div>
+            <a href="/#services" class="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-secondary transition-colors">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-accent">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 bg-purple/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Professional Services</h3>
+          <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus luctus nec.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 bg-purple/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">High-End Equipment</h3>
+          <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus luctus nec.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 bg-purple/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Competitive Pricing</h3>
+          <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus luctus nec.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Our Services</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+          Wash Your Car, Change Your Life
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <div class="group">
+            <div class="relative overflow-hidden rounded-2xl mb-4">
+              <img
+                src={service.image}
+                alt={service.title}
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
+            <p class="text-gray-600 text-sm mb-3">{service.description}</p>
+            <a href="#" class="text-purple font-medium text-sm hover:underline">Read More</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule & Image Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Opening Hours</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8">
+            Wash and Wax Today!
+          </h2>
+          <p class="text-gray-600 mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+          </p>
+          <div class="space-y-3">
+            {schedule.map((item) => (
+              <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                <span class="font-medium text-gray-900">{item.day}</span>
+                <div class="flex gap-8">
+                  <span class="text-gray-600">{item.morning}</span>
+                  <span class="text-gray-600">{item.afternoon}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&h=500&fit=crop"
+            alt="Car Wash Service"
+            class="rounded-2xl shadow-xl w-full"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=250&h=200&fit=crop"
+            alt="Car Interior"
+            class="absolute -bottom-6 -left-6 rounded-2xl shadow-xl border-4 border-white hidden md:block"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Pricing Plan</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+          Affordable Pricing Service
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {pricingPlans.map((plan) => (
+          <div class={`rounded-2xl p-8 ${plan.featured ? 'bg-accent shadow-xl scale-105' : 'bg-gray-50'}`}>
+            <h3 class={`text-xl font-semibold mb-2 ${plan.featured ? 'text-primary' : 'text-gray-900'}`}>{plan.name}</h3>
+            <p class="text-gray-600 text-sm mb-6">{plan.description}</p>
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-gray-900">${plan.price}</span>
+              <span class="text-gray-600">/ Service</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              {plan.features.map((feature) => (
+                <li class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class={`h-5 w-5 ${plan.featured ? 'text-primary' : 'text-purple'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-700">{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/contact"
+              class={`block text-center py-3 rounded-full font-medium transition-colors ${
+                plan.featured
+                  ? 'bg-primary text-white hover:bg-secondary'
+                  : 'bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary'
+              }`}
+            >
+              Get Started
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=450&fit=crop"
+            alt="Yellow Car"
+            class="rounded-2xl shadow-xl"
+          />
+        </div>
+        <div>
+          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Why Choose Us</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+            Unbelievable Deals, Incredible Service
+          </h2>
+          <p class="text-gray-600 mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-purple/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">25+ Years Experience</h4>
+                <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus luctus nec.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-purple/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">Best Quality Service</h4>
+                <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus luctus nec.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-20 bg-primary text-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-accent font-medium mb-4 tracking-wider uppercase text-sm">Our Process</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold">
+          We'll Take Care of the Dirty Work
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">01. Choose Service</h3>
+          <p class="text-gray-300 text-sm">Lorem ipsum dolor sit amet, consec adipiscing elit. Ut elit tellus luctus.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 bg-purple rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">02. Get Washed</h3>
+          <p class="text-gray-300 text-sm">Lorem ipsum dolor sit amet, consec adipiscing elit. Ut elit tellus luctus.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">03. Payment</h3>
+          <p class="text-gray-300 text-sm">Lorem ipsum dolor sit amet, consec adipiscing elit. Ut elit tellus luctus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="text-6xl text-accent mb-8">"</div>
+        <p class="text-xl text-gray-700 italic mb-8">
+          Vivamus pulvinar massa luctus urna bibendum porta sit amet ullamcorper erat. In eget est at augue sodales faucibus. Donec dapibus leo in erat consectetur, ac dictum magna tempor.
+        </p>
+        <div class="flex text-accent justify-center mb-4">
+          {[...Array(5)].map(() => (
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          ))}
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop"
+          alt="Lina Navarro"
+          class="w-16 h-16 rounded-full mx-auto mb-4 object-cover"
+        />
+        <h4 class="font-semibold text-gray-900">Lina Navarro</h4>
+        <p class="text-gray-500 text-sm">Customer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+        <div>
+          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Locations</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+            The Best Car Wash in Towns
+          </h2>
+        </div>
+        <a href="/contact" class="mt-4 md:mt-0 bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-secondary transition-colors">
+          Contact Us
+        </a>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {locations.map((location) => (
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <span class="inline-block bg-accent text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4">{location.city}</span>
+            <p class="text-gray-900 font-medium mb-4">{location.address}</p>
+            <div class="space-y-2 text-sm">
+              <p class="text-gray-600">{location.weekday}</p>
+              <p class="text-purple font-medium">{location.weekdayHours}</p>
+              <p class="text-gray-600">{location.weekend}</p>
+              <p class="text-purple font-medium">{location.weekendHours}</p>
+            </div>
+            <a href="#" class="text-purple font-medium text-sm hover:underline mt-4 inline-block">View Location</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Our Team</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+          Professional Staffs
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {teamMembers.map((member) => (
+          <div class="group">
+            <div class="relative overflow-hidden rounded-2xl mb-4">
+              <img
+                src={member.image}
+                alt={member.name}
+                class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div class="text-center">
+              <h3 class="text-lg font-semibold text-gray-900">{member.name}</h3>
+              <p class="text-gray-500 text-sm">{member.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Locations</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+          Read Our Articles
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {blogPosts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow block">
+            <div class="relative">
+              <img
+                src={post.image}
+                alt={post.title}
+                class="w-full h-48 object-cover"
+              />
+              <div class="absolute top-4 left-4 flex gap-2">
+                {post.categories.map((cat) => (
+                  <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">{cat}</span>
+                ))}
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-purple text-sm mb-2">{post.date}</p>
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">{post.title}</h3>
+              <p class="text-gray-600 text-sm">{post.excerpt}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faqs" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">FAQs</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-gray-600 mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+          <div class="space-y-4">
+            {faqs.map((faq, index) => (
+              <div class="border border-gray-200 rounded-xl overflow-hidden">
+                <button
+                  class="w-full flex items-center justify-between p-4 text-left bg-white hover:bg-gray-50 transition-colors faq-toggle"
+                  data-index={index}
+                >
+                  <span class="font-medium text-gray-900">{faq.question}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 faq-icon transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="hidden faq-content px-4 pb-4">
+                  <p class="text-gray-600 text-sm">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=600&fit=crop"
+            alt="Customer Service"
+            class="rounded-2xl shadow-xl"
+          />
+          <div class="absolute bottom-8 left-8 bg-white rounded-xl shadow-lg p-6 max-w-xs">
+            <h4 class="font-semibold text-gray-900 mb-3">Our Office</h4>
+            <div class="space-y-2 text-sm text-gray-600">
+              <p class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                </svg>
+                457 Morningview Lane NY
+              </p>
+              <p class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                aquwash@mails.com
+              </p>
+              <p class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                +1 (234) 567 890
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach((button) => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+
+      content?.classList.toggle('hidden');
+      icon?.classList.toggle('rotate-180');
+    });
+  });
+</script>
