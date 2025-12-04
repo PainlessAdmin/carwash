@@ -69,10 +69,40 @@ const pricingPlans = [
 ];
 
 const locations = [
-  { city: 'NEW YORK', address: '06 955 Nawn Trail, 99811', weekday: 'Monday - Friday', weekdayHours: '10:00 AM - 06:00 PM', weekend: 'Saturday - Sunday', weekendHours: '09:00 AM - 04:00 PM' },
-  { city: 'ANKENY', address: '0920 Cole Shore, 917-520', weekday: 'Monday - Friday', weekdayHours: '10:00 AM - 06:00 PM', weekend: 'Saturday - Sunday', weekendHours: '09:00 AM - 04:00 PM' },
-  { city: 'FELICIA', address: '392 Kunde Well, 708-706', weekday: 'Monday - Friday', weekdayHours: '10:00 AM - 06:00 PM', weekend: 'Saturday - Sunday', weekendHours: '09:00 AM - 04:00 PM' },
-  { city: 'WEST VILLA', address: '232 Simeon Isle, 349-0584', weekday: 'Monday - Friday', weekdayHours: '10:00 AM - 06:00 PM', weekend: 'Saturday - Sunday', weekendHours: '09:00 AM - 04:00 PM' },
+  { city: 'BRISTOL', address: '290-294 Southmead Rd, BS10 5EN', weekday: 'Monday - Saturday', weekdayHours: '7:00 AM - 8:00 PM', weekend: 'Sunday', weekendHours: 'Closed' },
+];
+
+const testimonials = [
+  {
+    name: 'Lee Turner',
+    text: 'Brought my X5 for a full valet that we won in a charity auction. The car has never looked cleaner. I was surprised!',
+    rating: 5,
+  },
+  {
+    name: 'Katie Wilkins',
+    text: 'A brilliant, efficient 5 star service. All my family go there now. Brilliant service! The best!',
+    rating: 5,
+  },
+  {
+    name: 'Charles Russell-Smith',
+    text: 'Excellent quick service at this car wash. They take the time to do a complete clean even inside door trims and the guys are always polite and efficient.',
+    rating: 5,
+  },
+  {
+    name: 'Danielle Price',
+    text: 'Friendly staff that pay attention to detail! Would highly recommend them for a clean. Also, a waiting room for your convenience.',
+    rating: 5,
+  },
+  {
+    name: 'Natalia Mielewczyk',
+    text: "I'm beyond impressed with the level of service. From the moment I arrived, the staff was friendly, professional, and thorough.",
+    rating: 5,
+  },
+  {
+    name: 'Jawad Burhan',
+    text: 'One of the best car wash in Bristol! Indoor waiting area! Great customer service!',
+    rating: 5,
+  },
 ];
 
 const blogPosts = [
@@ -517,28 +547,38 @@ const teamMembers = [
     </div>
   </section>
 
-  <!-- Testimonial Section -->
+  <!-- Testimonials Section -->
   <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto text-center">
-        <div class="text-6xl text-accent mb-8">"</div>
-        <p class="text-xl text-gray-700 italic mb-8">
-          Vivamus pulvinar massa luctus urna bibendum porta sit amet ullamcorper erat. In eget est at augue sodales faucibus. Donec dapibus leo in erat consectetur, ac dictum magna tempor.
-        </p>
-        <div class="flex text-accent justify-center mb-4">
-          {[...Array(5)].map(() => (
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          ))}
-        </div>
-        <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop"
-          alt="Lina Navarro"
-          class="w-16 h-16 rounded-full mx-auto mb-4 object-cover"
-        />
-        <h4 class="font-semibold text-gray-900">Lina Navarro</h4>
-        <p class="text-gray-500 text-sm">Customer</p>
+      <div class="text-center mb-16">
+        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Testimonials</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+          What Our Customers Say
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {testimonials.map((testimonial) => (
+          <div class="bg-gray-50 rounded-2xl p-8">
+            <div class="text-4xl text-accent mb-4">"</div>
+            <p class="text-gray-700 mb-6">{testimonial.text}</p>
+            <div class="flex text-accent mb-4">
+              {[...Array(testimonial.rating)].map(() => (
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-purple rounded-full flex items-center justify-center text-white font-semibold">
+                {testimonial.name.charAt(0)}
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">{testimonial.name}</h4>
+                <p class="text-gray-500 text-sm">Verified Customer</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -550,7 +590,7 @@ const teamMembers = [
         <div>
           <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Locations</p>
           <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
-            The Best Car Wash in Towns
+            The Best Car Wash in Bristol
           </h2>
         </div>
         <a href="/contact" class="mt-4 md:mt-0 bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-secondary transition-colors">
