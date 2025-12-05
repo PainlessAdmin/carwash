@@ -8,7 +8,330 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'AQUWASH - Professional Car Wash and Detailing Service' } = Astro.props;
+const { title, description = 'Painless Car & Van Wash - Professional car valeting service in Southmead, Bristol. Affordable car wash, van wash, and full valet packages. Open 7 days a week.' } = Astro.props;
+
+const siteUrl = 'https://bristolcarwash.co.uk';
+
+// LocalBusiness + AutoWash Schema
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoWash",
+  "@id": `${siteUrl}/#business`,
+  "name": "Painless Car & Van Wash",
+  "legalName": "PAINLESS VAN & CAR VALETING LTD",
+  "description": "Professional car and van valeting service in Southmead, Bristol. Offering car wash, van wash, car detailing, and full valet packages at affordable prices.",
+  "url": siteUrl,
+  "telephone": "+447977889747",
+  "email": "hello@bristolcarwash.co.uk",
+  "foundingDate": "2024",
+  "priceRange": "£",
+  "currenciesAccepted": "GBP",
+  "paymentAccepted": "Cash, Credit Card, Debit Card, Apple Pay, Google Pay, Contactless",
+  "image": [
+    `${siteUrl}/images/Bristol-Car-Valeting.webp`,
+    `${siteUrl}/images/Bristol-van-wash.webp`,
+    `${siteUrl}/images/Bristol-Car-Wash-logo.webp`
+  ],
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${siteUrl}/images/Bristol-Car-Wash-logo.webp`,
+    "width": 200,
+    "height": 80
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "290-294 Southmead Road",
+    "addressLocality": "Bristol",
+    "addressRegion": "Bristol",
+    "postalCode": "BS10 5EN",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.5002,
+    "longitude": -2.5927
+  },
+  "hasMap": "https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "31",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Lee Turner" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Brought my X5 for a full valet that we won in a charity auction. The car has never looked cleaner. I was surprised!"
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Katie Wilkins" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "A brilliant, efficient 5 star service. All my family go there now. Brilliant service! The best!"
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Charles Russell-Smith" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Excellent quick service at this car wash. They take the time to do a complete clean even inside door trims and the guys are always polite and efficient."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Danielle Price" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Friendly staff that pay attention to detail! Would highly recommend them for a clean. Also, a waiting room for your convenience."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Natalia Mielewczyk" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "I'm beyond impressed with the level of service. From the moment I arrived, the staff was friendly, professional, and thorough."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Jawad Burhan" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "One of the best car wash in Bristol! Indoor waiting area! Great customer service!"
+    }
+  ],
+  "sameAs": [
+    "https://share.google/m8qhZn8y0hSYzbgqx"
+  ],
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Bristol"
+    },
+    {
+      "@type": "Place",
+      "name": "Southmead"
+    },
+    {
+      "@type": "Place",
+      "name": "Westbury-on-Trym"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Car Wash & Valeting Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Wash & Wax",
+          "description": "Wash, Dry & Wax, Windows (Outside), Tyre Dressing"
+        },
+        "price": "10",
+        "priceCurrency": "GBP"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bronze Wash",
+          "description": "Wash & Dry, Vacuum - Seats, Carpets, Boot, Windows (Outside/Inside), Tyre Dressing"
+        },
+        "price": "20",
+        "priceCurrency": "GBP"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Silver Wash",
+          "description": "Wash & Dry, Vacuum - Seats, Carpets, Boot, Windows (Outside/Inside), Dashboard Polish, Tyre Dressing"
+        },
+        "price": "25",
+        "priceCurrency": "GBP"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Wash & Polish",
+          "description": "Wash & Dry, Outside Polish, Windows (Outside), Tyre Dressing"
+        },
+        "price": "40",
+        "priceCurrency": "GBP"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Special Offer",
+          "description": "Wash, Dry & Polish, Vacuum - Seats, Carpets, Boot, Windows (Outside/Inside), Dashboard & Interior Polish"
+        },
+        "price": "35",
+        "priceCurrency": "GBP"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Full Valet",
+          "description": "Interior & Exterior Valet, Engine Clean & Lacquer"
+        },
+        "price": "60",
+        "priceCurrency": "GBP"
+      }
+    ]
+  }
+};
+
+// Organization Schema
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  "name": "Painless Car & Van Wash",
+  "legalName": "PAINLESS VAN & CAR VALETING LTD",
+  "url": siteUrl,
+  "logo": `${siteUrl}/images/Bristol-Car-Wash-logo.webp`,
+  "foundingDate": "2024",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+447977889747",
+    "contactType": "customer service",
+    "email": "hello@bristolcarwash.co.uk",
+    "availableLanguage": "English"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "290-294 Southmead Road",
+    "addressLocality": "Bristol",
+    "postalCode": "BS10 5EN",
+    "addressCountry": "GB"
+  },
+  "sameAs": [
+    "https://share.google/m8qhZn8y0hSYzbgqx"
+  ]
+};
+
+// WebSite Schema
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "name": "Painless Car & Van Wash",
+  "url": siteUrl,
+  "publisher": {
+    "@id": `${siteUrl}/#organization`
+  }
+};
+
+// FAQPage Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to book in advance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No booking required! Simply drive in during our opening hours. For larger vehicles or full valets, we recommend calling ahead to ensure minimal wait time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a full valet take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A full valet typically takes 2-3 hours depending on the size and condition of your vehicle. We recommend dropping off your car and collecting it later, or you can wait in our comfortable waiting area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer mobile valeting services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we offer mobile valeting for vans and larger vehicles. Contact us to discuss your requirements and get a quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What payment methods do you accept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept cash, all major credit and debit cards, and contactless payments including Apple Pay and Google Pay."
+      }
+    }
+  ]
+};
+
+// Service Schema for main services
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Car Wash and Valeting",
+  "provider": {
+    "@id": `${siteUrl}/#business`
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Bristol"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Valeting Services",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Car Wash",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Wash" } }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Van Wash",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Van Wash" } }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Car Valeting",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Valeting" } }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Van Valeting",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Van Valeting" } }
+        ]
+      }
+    ]
+  }
+};
+
+// BreadcrumbList Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": siteUrl
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -17,7 +340,33 @@ const { title, description = 'AQUWASH - Professional Car Wash and Detailing Serv
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Painless Car & Van Wash" />
+    <link rel="canonical" href={siteUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | Painless Car & Van Wash Bristol`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={`${siteUrl}/images/Bristol-Car-Valeting.webp`} />
+    <meta property="og:site_name" content="Painless Car & Van Wash" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Painless Car & Van Wash Bristol`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/images/Bristol-Car-Valeting.webp`} />
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="GB-BST" />
+    <meta name="geo.placename" content="Bristol" />
+    <meta name="geo.position" content="51.5002;-2.5927" />
+    <meta name="ICBM" content="51.5002, -2.5927" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" />
@@ -25,7 +374,16 @@ const { title, description = 'AQUWASH - Professional Car Wash and Detailing Serv
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     </noscript>
-    <title>{title} | AQUWASH</title>
+
+    <title>{title} | Painless Car & Van Wash Bristol</title>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </head>
   <body class="antialiased">
     <Header />
