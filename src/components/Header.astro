@@ -14,9 +14,9 @@ const navItems = [
 
 <!-- Top Bar -->
 <div class="bg-primary text-white text-sm py-2">
-  <div class="container mx-auto px-4 flex flex-wrap justify-between items-center">
-    <div class="flex flex-wrap items-center gap-4 md:gap-6">
-      <a href="#" class="flex items-center gap-2 hover:text-accent transition-colors">
+  <div class="max-w-[1200px] mx-auto px-4 flex flex-wrap justify-center items-center">
+    <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+      <a href="https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-accent transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -47,7 +47,7 @@ const navItems = [
 
 <!-- Main Navigation -->
 <header class="bg-white shadow-sm sticky top-0 z-50">
-  <div class="container mx-auto px-4">
+  <div class="max-w-[1200px] mx-auto px-4">
     <nav class="flex items-center justify-between py-4">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2">
@@ -81,17 +81,24 @@ const navItems = [
       </div>
 
       <!-- Right Side -->
-      <div class="flex items-center gap-4">
-        <button class="hidden md:block text-gray-700 hover:text-purple transition-colors" aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </button>
+      <div class="flex items-center gap-3">
         <a
-          href="/contact"
-          class="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-secondary transition-colors"
+          href="https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden md:flex items-center gap-2 border-2 border-primary text-primary px-5 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-colors"
         >
-          Contact Us
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Directions
+        </a>
+        <a
+          href="/#pricing"
+          class="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-secondary transition-colors"
+        >
+          Prices & Book Now
         </a>
 
         <!-- Mobile Menu Button -->
