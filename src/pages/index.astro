@@ -199,9 +199,9 @@ const teamMembers = [
 
 <Layout title="Home">
   <!-- Hero Section -->
-  <section class="relative bg-gray-50 overflow-hidden">
-    <div class="container mx-auto px-4 py-16 lg:py-24">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+  <section class="relative overflow-hidden min-h-screen flex items-center" style="background-color: #e5f2ff;">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div>
           <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Painless Car & Van Wash Southmead, Bristol</p>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight mb-6">
@@ -238,11 +238,10 @@ const teamMembers = [
               </div>
               <p class="text-gray-700 text-sm italic">"A brilliant, 5-star service. All my family go there now. The best!"</p>
               <p class="text-gray-900 font-semibold text-sm mt-1">Katie Wilkins</p>
-              <p class="text-gray-500 text-xs">200+ Satisfied Members</p>
             </div>
           </div>
         </div>
-        <div class="relative">
+        <div class="relative pb-5">
           <div class="relative z-10">
             <picture>
               <source srcset="/images/Bristol-Car-Valeting.webp" type="image/webp" />
@@ -262,7 +261,7 @@ const teamMembers = [
             </div>
           </div>
           <!-- Rating Card -->
-          <div class="stat-card stat-card-pulse absolute bottom-4 left-4 bg-white rounded-xl shadow-lg p-4 z-20">
+          <div class="stat-card stat-card-pulse absolute bottom-9 left-4 bg-white rounded-xl shadow-lg p-4 z-20">
             <div class="flex items-center gap-2">
               <span class="text-3xl font-bold text-gray-900 count-number" data-target="4.9">4.9</span>
               <div>
@@ -408,36 +407,8 @@ const teamMembers = [
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Our Services</p>
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
-          Wash Your Car, Change Your Life
-        </h2>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service) => (
-          <div class="group">
-            <div class="relative overflow-hidden rounded-2xl mb-4">
-              <img
-                src={service.image}
-                alt={service.title}
-                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
-            <p class="text-gray-600 text-sm mb-3">{service.description}</p>
-            <a href="#" class="text-purple font-medium text-sm hover:underline">Read More</a>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- Schedule & Map Section -->
-  <section class="py-20 bg-gray-50">
+  <section id="services" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="grid lg:grid-cols-2 gap-12 items-start">
         <div>
@@ -453,6 +424,20 @@ const teamMembers = [
               </div>
             ))}
           </div>
+        </div>
+        <div>
+          <div class="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.123456789!2d-2.5927!3d51.5002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e9f9d5d5555%3A0x1234567890abcdef!2s290-294%20Southmead%20Rd%2C%20Bristol%20BS10%205EN!5e0!3m2!1sen!2suk!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Painless Car Wash Location"
+            ></iframe>
+          </div>
           <div class="mt-6 flex items-center gap-3">
             <div class="w-10 h-10 bg-purple/10 rounded-full flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -465,18 +450,6 @@ const teamMembers = [
               <p class="font-semibold text-gray-900">290-294 Southmead Rd, Bristol BS10 5EN</p>
             </div>
           </div>
-        </div>
-        <div class="relative h-[500px] rounded-2xl overflow-hidden shadow-xl">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.123456789!2d-2.5927!3d51.5002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e9f9d5d5555%3A0x1234567890abcdef!2s290-294%20Southmead%20Rd%2C%20Bristol%20BS10%205EN!5e0!3m2!1sen!2suk!4v1234567890"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Painless Car Wash Location"
-          ></iframe>
         </div>
       </div>
     </div>
@@ -512,7 +485,7 @@ const teamMembers = [
       <!-- Pricing Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {pricingPlans.map((plan) => (
-          <div class={`relative rounded-2xl p-6 shadow-lg transition-all hover:shadow-xl ${
+          <div class={`relative rounded-2xl p-6 shadow-lg transition-all hover:shadow-xl flex flex-col h-full ${
             plan.popular ? 'bg-accent ring-2 ring-accent' : plan.premium ? 'bg-primary text-white' : 'bg-white'
           }`}>
             {/* Package Number */}
@@ -557,7 +530,7 @@ const teamMembers = [
             </div>
 
             {/* Features */}
-            <ul class="space-y-2 mb-6">
+            <ul class="space-y-2 mb-6 flex-grow">
               {plan.features.map((feature) => (
                 <li class="flex items-start gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" class={`h-5 w-5 mt-0.5 flex-shrink-0 ${
@@ -573,7 +546,7 @@ const teamMembers = [
             {/* CTA Button */}
             <a
               href="/contact"
-              class={`block text-center py-3 rounded-full font-medium transition-colors ${
+              class={`block text-center py-3 rounded-full font-medium transition-colors mt-auto ${
                 plan.premium
                   ? 'bg-accent text-primary hover:bg-accent-hover'
                   : plan.popular
