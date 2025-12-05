@@ -407,8 +407,47 @@ const teamMembers = [
     </div>
   </section>
 
+  <!-- Services Articles Section -->
+  <section id="services" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Our Services</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+          What We Offer
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {blogPosts.map((post) => (
+          <a href={`/#pricing`} class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow block group border border-gray-100">
+            <div class="relative overflow-hidden">
+              <picture>
+                <source srcset={`${post.image}.webp`} type="image/webp" />
+                <img
+                  src={`${post.image}.jpg`}
+                  alt={post.title}
+                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="absolute top-4 left-4 flex gap-2">
+                {post.categories.map((cat) => (
+                  <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">{cat}</span>
+                ))}
+              </div>
+            </div>
+            <div class="p-5">
+              <p class="text-purple text-sm font-medium mb-2">{post.date}</p>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">{post.title}</h3>
+              <p class="text-gray-600 text-sm">{post.excerpt}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Schedule & Map Section -->
-  <section id="services" class="py-20 bg-gray-50">
+  <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="grid lg:grid-cols-2 gap-12 items-start">
         <div>
@@ -686,110 +725,6 @@ const teamMembers = [
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Locations Section -->
-  <section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
-        <div>
-          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Locations</p>
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
-            The Best Car Wash in Bristol
-          </h2>
-        </div>
-        <a href="/contact" class="mt-4 md:mt-0 bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-secondary transition-colors">
-          Contact Us
-        </a>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {locations.map((location) => (
-          <div class="bg-white rounded-2xl p-6 shadow-sm">
-            <span class="inline-block bg-accent text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4">{location.city}</span>
-            <p class="text-gray-900 font-medium mb-4">{location.address}</p>
-            <div class="space-y-2 text-sm">
-              <p class="text-gray-600">{location.weekday}</p>
-              <p class="text-purple font-medium">{location.weekdayHours}</p>
-              <p class="text-gray-600">{location.weekend}</p>
-              <p class="text-purple font-medium">{location.weekendHours}</p>
-            </div>
-            <a href="#" class="text-purple font-medium text-sm hover:underline mt-4 inline-block">View Location</a>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Team Section -->
-  <section id="team" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Our Team</p>
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
-          Professional Staff
-        </h2>
-      </div>
-      <div class="max-w-md mx-auto">
-        {teamMembers.map((member) => (
-          <div class="group">
-            <div class="relative overflow-hidden rounded-2xl mb-4">
-              <picture>
-                <source srcset={`${member.image}.webp`} type="image/webp" />
-                <img
-                  src={`${member.image}.jpg`}
-                  alt={member.name}
-                  class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </picture>
-            </div>
-            <div class="text-center">
-              <h3 class="text-lg font-semibold text-gray-900">{member.name}</h3>
-              <p class="text-gray-500 text-sm">{member.role}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Articles Section -->
-  <section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Our Services</p>
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
-          What We Offer
-        </h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {blogPosts.map((post) => (
-          <a href={`/#pricing`} class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow block group">
-            <div class="relative overflow-hidden">
-              <picture>
-                <source srcset={`${post.image}.webp`} type="image/webp" />
-                <img
-                  src={`${post.image}.jpg`}
-                  alt={post.title}
-                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </picture>
-              <div class="absolute top-4 left-4 flex gap-2">
-                {post.categories.map((cat) => (
-                  <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">{cat}</span>
-                ))}
-              </div>
-            </div>
-            <div class="p-5">
-              <p class="text-purple text-sm font-medium mb-2">{post.date}</p>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">{post.title}</h3>
-              <p class="text-gray-600 text-sm">{post.excerpt}</p>
-            </div>
-          </a>
         ))}
       </div>
     </div>
