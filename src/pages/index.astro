@@ -199,8 +199,8 @@ const teamMembers = [
 
 <Layout title="Home">
   <!-- Hero Section -->
-  <section class="relative overflow-hidden min-h-screen flex items-center" style="background-color: #e5f2ff;">
-    <div class="container mx-auto px-4 py-8">
+  <section class="relative overflow-hidden min-h-[calc(100vh-88px)] flex items-center" style="background-color: #e5f2ff;">
+    <div class="container mx-auto px-4 py-12">
       <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div>
           <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Painless Car & Van Wash Southmead, Bristol</p>
@@ -382,8 +382,8 @@ const teamMembers = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">Professional Services</h3>
-          <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus luctus nec.</p>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Trained & Experienced Team</h3>
+          <p class="text-gray-600 text-sm">Our skilled team brings years of valeting experience to every vehicle, ensuring meticulous attention to detail and a spotless finish every time.</p>
         </div>
         <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
           <div class="w-16 h-16 bg-purple/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -391,8 +391,8 @@ const teamMembers = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">High-End Equipment</h3>
-          <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus luctus nec.</p>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Premium Products Only</h3>
+          <p class="text-gray-600 text-sm">We use only professional-grade cleaning products that are gentle on your paintwork while delivering a showroom-quality shine that lasts.</p>
         </div>
         <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
           <div class="w-16 h-16 bg-purple/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -400,8 +400,8 @@ const teamMembers = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">Competitive Pricing</h3>
-          <p class="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus luctus nec.</p>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Unbeatable Value</h3>
+          <p class="text-gray-600 text-sm">Get exceptional quality without breaking the bank. Our competitive prices mean you can keep your vehicle looking pristine week after week.</p>
         </div>
       </div>
     </div>
@@ -449,36 +449,31 @@ const teamMembers = [
   <!-- Schedule & Map Section -->
   <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
-      <div class="grid lg:grid-cols-2 gap-12 items-start">
-        <div>
-          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Opening Hours</p>
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8">
-            Visit Us Today!
-          </h2>
-          <div class="space-y-3 bg-white rounded-2xl p-6 shadow-sm">
-            {schedule.map((item) => (
-              <div class="flex justify-between items-center py-3 border-b border-gray-100 last:border-0">
-                <span class="font-medium text-gray-900">{item.day}</span>
-                <span class="text-purple font-medium">{item.hours}</span>
-              </div>
-            ))}
-          </div>
+      <!-- Header Row - Full Width -->
+      <div class="text-center mb-12">
+        <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Opening Hours</p>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+          Visit Us Today!
+        </h2>
+      </div>
+
+      <!-- Two Column Layout -->
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
+        <!-- Opening Hours -->
+        <div class="space-y-3 bg-white rounded-2xl p-6 shadow-sm">
+          {schedule.map((item) => (
+            <div class="flex justify-between items-center py-3 border-b border-gray-100 last:border-0">
+              <span class="font-medium text-gray-900">{item.day}</span>
+              <span class="text-purple font-medium">{item.hours}</span>
+            </div>
+          ))}
         </div>
+
+        <!-- Map with Address Above -->
         <div>
-          <div class="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.123456789!2d-2.5927!3d51.5002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e9f9d5d5555%3A0x1234567890abcdef!2s290-294%20Southmead%20Rd%2C%20Bristol%20BS10%205EN!5e0!3m2!1sen!2suk!4v1234567890"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Painless Car Wash Location"
-            ></iframe>
-          </div>
-          <div class="mt-6 flex items-center gap-3">
-            <div class="w-10 h-10 bg-purple/10 rounded-full flex items-center justify-center">
+          <!-- Address Above Map -->
+          <div class="mb-4 flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm">
+            <div class="w-10 h-10 bg-purple/10 rounded-full flex items-center justify-center flex-shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -488,6 +483,34 @@ const teamMembers = [
               <p class="text-sm text-gray-500">Find us at</p>
               <p class="font-semibold text-gray-900">290-294 Southmead Rd, Bristol BS10 5EN</p>
             </div>
+          </div>
+
+          <!-- Map -->
+          <div class="relative h-[350px] rounded-2xl overflow-hidden shadow-xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.123456789!2d-2.5927!3d51.5002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e9f9d5d5555%3A0x1234567890abcdef!2s290-294%20Southmead%20Rd%2C%20Bristol%20BS10%205EN!5e0!3m2!1sen!2suk!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Painless Car & Van Wash Location"
+            ></iframe>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a href="/#pricing" class="flex-1 bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-secondary transition-colors text-center">
+              Prices & Book Now
+            </a>
+            <a href="https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN" target="_blank" rel="noopener noreferrer" class="flex-1 border-2 border-primary text-primary px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition-colors text-center flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Get Directions
+            </a>
           </div>
         </div>
       </div>
