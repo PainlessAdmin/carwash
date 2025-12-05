@@ -202,19 +202,21 @@ const teamMembers = [
   <section class="relative overflow-hidden min-h-[calc(100vh-88px)] flex items-center" style="background-color: #e5f2ff;">
     <div class="container mx-auto px-4 py-12">
       <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <div>
-          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm">Painless Car & Van Wash Southmead, Bristol</p>
+        <!-- Text Content - shows second on mobile, first on desktop -->
+        <div class="order-2 lg:order-1">
+          <p class="text-purple font-medium mb-4 tracking-wider uppercase text-sm md:text-left">Painless Car & Van Wash Southmead, Bristol</p>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight mb-6">
             Make your car smell and feel new again
           </h1>
-          <p class="text-gray-600 text-lg mb-8 max-w-lg">
+          <p class="text-gray-600 text-lg mb-8 max-w-lg md:text-left mx-auto md:mx-0">
             Discover our proven and affordable car & van valeting service right at the corner of the Southmead Hospital, Bristol.
           </p>
-          <div class="flex flex-wrap gap-4 mb-8">
-            <a href="/#pricing" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-secondary transition-colors">
+          <!-- CTA Buttons - stacked on mobile, inline on desktop -->
+          <div class="flex flex-col sm:flex-row gap-3 mb-8">
+            <a href="/#pricing" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-secondary transition-colors text-center">
               Prices & Book Now
             </a>
-            <a href="https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN" target="_blank" rel="noopener noreferrer" class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-full font-medium hover:border-primary hover:text-primary transition-colors flex items-center gap-2">
+            <a href="https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN" target="_blank" rel="noopener noreferrer" class="border-2 border-primary text-primary px-8 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -241,7 +243,8 @@ const teamMembers = [
             </div>
           </div>
         </div>
-        <div class="relative pb-5">
+        <!-- Hero Image - shows first on mobile, second on desktop -->
+        <div class="relative pb-5 order-1 lg:order-2">
           <div class="relative z-10">
             <picture>
               <source srcset="/images/Bristol-Car-Valeting.webp" type="image/webp" />
@@ -499,12 +502,12 @@ const teamMembers = [
             ></iframe>
           </div>
 
-          <!-- CTA Buttons -->
-          <div class="mt-6 flex flex-wrap gap-4">
-            <a href="/#pricing" class="flex-1 bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-secondary transition-colors text-center">
+          <!-- CTA Buttons - stacked on mobile, side by side on tablet+ -->
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="/#pricing" class="sm:flex-1 bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-secondary transition-colors text-center">
               Prices & Book Now
             </a>
-            <a href="https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN" target="_blank" rel="noopener noreferrer" class="flex-1 border-2 border-primary text-primary px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition-colors text-center flex items-center justify-center gap-2">
+            <a href="https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN" target="_blank" rel="noopener noreferrer" class="sm:flex-1 border-2 border-primary text-primary px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
