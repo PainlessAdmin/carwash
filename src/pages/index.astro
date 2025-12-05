@@ -213,9 +213,9 @@ const teamMembers = [
           </p>
           <!-- CTA Buttons - stacked on mobile, inline on desktop -->
           <div class="flex flex-col sm:flex-row gap-3 mb-8">
-            <a href="/#pricing" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-secondary transition-colors text-center">
-              Prices & Book Now
-            </a>
+            <button type="button" onclick="openBookingModal()" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-secondary transition-colors text-center">
+              Book Now
+            </button>
             <a href="https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN" target="_blank" rel="noopener noreferrer" class="border-2 border-primary text-primary px-8 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -504,9 +504,9 @@ const teamMembers = [
 
           <!-- CTA Buttons - stacked on mobile, side by side on tablet+ -->
           <div class="mt-6 flex flex-col sm:flex-row gap-3">
-            <a href="/#pricing" class="sm:flex-1 bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-secondary transition-colors text-center">
-              Prices & Book Now
-            </a>
+            <button type="button" onclick="openBookingModal()" class="sm:flex-1 bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-secondary transition-colors text-center">
+              Book Now
+            </button>
             <a href="https://maps.google.com/?q=290-294+Southmead+Rd,+Bristol+BS10+5EN" target="_blank" rel="noopener noreferrer" class="sm:flex-1 border-2 border-primary text-primary px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -609,9 +609,10 @@ const teamMembers = [
             </ul>
 
             {/* CTA Button */}
-            <a
-              href="/contact"
-              class={`block text-center py-3 rounded-full font-medium transition-colors mt-auto ${
+            <button
+              type="button"
+              onclick="openBookingModal()"
+              class={`block text-center py-3 rounded-full font-medium transition-colors mt-auto w-full ${
                 plan.premium
                   ? 'bg-accent text-primary hover:bg-accent-hover'
                   : plan.popular
@@ -620,7 +621,7 @@ const teamMembers = [
               }`}
             >
               Book Now
-            </a>
+            </button>
           </div>
         ))}
       </div>
